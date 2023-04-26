@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="form-container">
+        <h2>Login</h2>
+    <form action="" onsubmit="return validateForm()">
+        <input type="text" placeholder="User name" id="username"><br>
+        <p id="userError" class="error"></p>
+        <input type="password" placeholder="Password" id="password"><br>
+        <p id="passError" class="error"></p>
+        <input type="submit">
+    </form>
+</div>
+<script>
+    let username=document.getElementById("username");
+    let password=document.getElementById("password");
+    let flag=true;
+
+    function validateForm()
+    {
+        if(username.value==""){
+           document.getElementById("userError").innerHTML="UserName is empty "
+           flag=false;
+        }
+        else if(username.value.length<3){
+            document.getElementById("userError").innerHTML="UserName required min 3 character"
+            flag=false;
+        }
+        else{
+            document.getElementById("userError").innerHTML="";
+            flag=true;
+        }
+        if(password.value==""){
+            document.getElementById("passError").innerHTML="Password is empty"
+            flag=false;
+        }
+        else if(password.value.length<8){
+            document.getElementById("passError").innerHTML="Password should not less then 6"
+            flag=false;
+        }
+        else if(!isRight(password.value)) 
+        {
+            document.getElementById("passError").innerHTML="Required 1 special char, 1 capital letter,1 num";
+            flag=false;
+        }
+        else{
+            document.getElementById("passError").innerHTML="";
+            flag=true;
+        }
+
+        return flag;
+    }
+
+    function isRight(word) {
+  const hasUppercase = /[A-Z]/.test(word);
+  const hasSpecialChar = /[!@#$%^&*]/.test(word);
+  const hasDigit = /\d/.test(word);
+
+  return hasUppercase && hasSpecialChar && hasDigit;
+}
+
+
+
+</script>
+</body>
+</html>
