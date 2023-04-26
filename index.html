@@ -11,9 +11,9 @@
     <div id="form-container">
         <h2>Login</h2>
     <form action="" onsubmit="return validateForm()">
-        <input type="text" placeholder="Neha" id="username"><br>
+        <input type="text" placeholder="User name" id="username"><br>
         <p id="userError" class="error"></p>
-        <input type="password" placeholder="I love You Naa" id="password"><br>
+        <input type="password" placeholder="Password" id="password"><br>
         <p id="passError" class="error"></p>
         <input type="submit">
     </form>
@@ -54,6 +54,7 @@
             document.getElementById("passError").innerHTML="";
             flag=true;
         }
+       
 
         return flag;
     }
